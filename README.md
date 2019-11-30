@@ -1,6 +1,6 @@
 # gateway
 
-A flutter plugin for get gateway information when wifi connect.
+A flutter plugin to get gateway information when wifi connect.
 Work on iOS and Android.
 
 For Android:
