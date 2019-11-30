@@ -1,4 +1,4 @@
-# flutter_gateway
+# gateway
 
 A new flutter plugin project.
 

@@ -1,4 +1,4 @@
-group 'com.example.flutter_gateway'
+group 'com.example.gateway'
 version '1.0'
 
 buildscript {

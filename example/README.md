@@ -1,6 +1,6 @@
-# flutter_gateway_example
+# gateway_example
 
-Demonstrates how to use the flutter_gateway plugin.
+Demonstrates how to use the gateway plugin.
 
 ## Getting Started
 

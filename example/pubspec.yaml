@@ -1,5 +1,5 @@
-name: flutter_gateway_example
-description: Demonstrates how to use the flutter_gateway plugin.
+name: gateway_example
+description: Demonstrates how to use the gateway plugin.
 publish_to: 'none'
 
 environment:
@@ -17,7 +17,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_gateway:
+  gateway:
     path: ../
 
 # For information on the generic Dart part of this file, see the

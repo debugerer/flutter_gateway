@@ -1,4 +1,4 @@
-package com.example.flutter_gateway;
+package com.example.gateway;
 
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -6,12 +6,12 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
 
-/** FlutterGatewayPlugin */
-public class FlutterGatewayPlugin implements MethodCallHandler {
+/** GatewayPlugin */
+public class GatewayPlugin implements MethodCallHandler {
   /** Plugin registration. */
   public static void registerWith(Registrar registrar) {
-    final MethodChannel channel = new MethodChannel(registrar.messenger(), "flutter_gateway");
-    channel.setMethodCallHandler(new FlutterGatewayPlugin());
+    final MethodChannel channel = new MethodChannel(registrar.messenger(), "gateway");
+    channel.setMethodCallHandler(new GatewayPlugin());
   }
 
   @Override

@@ -1,4 +1,4 @@
-package com.example.flutter_gateway_example;
+package com.example.gateway_example;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

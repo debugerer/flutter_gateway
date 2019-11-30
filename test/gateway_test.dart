@@ -1,9 +1,9 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_gateway/flutter_gateway.dart';
+import 'package:gateway/gateway.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('flutter_gateway');
+  const MethodChannel channel = MethodChannel('gateway');
 
   setUp(() {
     channel.setMockMethodCallHandler((MethodCall methodCall) async {
@@ -16,6 +16,6 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    expect(await FlutterGateway.platformVersion, '42');
+    expect(await Gateway.platformVersion, '42');
   });
 }

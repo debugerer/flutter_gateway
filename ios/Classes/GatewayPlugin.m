@@ -1,11 +1,11 @@
-#import "FlutterGatewayPlugin.h"
+#import "GatewayPlugin.h"
 
-@implementation FlutterGatewayPlugin
+@implementation GatewayPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   FlutterMethodChannel* channel = [FlutterMethodChannel
-      methodChannelWithName:@"flutter_gateway"
+      methodChannelWithName:@"gateway"
             binaryMessenger:[registrar messenger]];
-  FlutterGatewayPlugin* instance = [[FlutterGatewayPlugin alloc] init];
+  GatewayPlugin* instance = [[GatewayPlugin alloc] init];
   [registrar addMethodCallDelegate:instance channel:channel];
 }
 
