@@ -1,10 +1,10 @@
 # gateway
 
-A gateway flutter plugin project.
+A flutter plugin for get gateway information when wifi connect.
 Work on iOS and Android.
 
 For Android:
-Add
+Need add:
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
 Usage:
