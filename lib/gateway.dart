@@ -23,6 +23,11 @@ class Gateway {
         netmask = map["netmask"],
         broadcast = map["broadcast"];
 
+  @override
+  String toString() {
+    return 'ip:$ip\n localIP:$localIP\n netmask:$netmask\n broadcast:$broadcast';
+  }
+
   static Future<String> get platformVersion async {
     final String version = await _channel.invokeMethod('getPlatformVersion');
     return version;
