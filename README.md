@@ -1,6 +1,17 @@
 # gateway
 
-A new flutter plugin project.
+A gateway flutter plugin project.
+Work on iOS and Android.
+
+For Android:
+Add
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+Usage:
+import 'package:gateway/gateway.dart';
+
+Gateway gt = await Gateway.info;
+print(gt);
 
 ## Getting Started
 
