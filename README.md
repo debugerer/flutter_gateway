@@ -5,14 +5,16 @@ Work on iOS and Android.
 
 For Android:
 Need add:
+```xml
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
+```
 Usage:
+```dart
 import 'package:gateway/gateway.dart';
 
 Gateway gt = await Gateway.info;
 print(gt);
-
+```
 ## Getting Started
 
 This project is a starting point for a Flutter
