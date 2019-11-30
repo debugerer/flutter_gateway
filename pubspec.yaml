@@ -1,8 +1,8 @@
 name: gateway
-description: A new flutter plugin project.
+description: A flutter plugin to get gateway.
 version: 0.0.1
-author:
-homepage:
+author: Charles <debuger@163.com>
+homepage: https://github.com/debugerer/flutter_gateway
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
