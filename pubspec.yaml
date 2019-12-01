@@ -1,6 +1,6 @@
 name: gateway
-description: A flutter plugin to get gateway.
-version: 0.0.1
+description: A flutter plugin to get gateway. If you want to obtain gateway related information in a WiFi network, you can use this package to obtain gateway IP address, network address etc.
+version: 0.3.0
 author: Charles <debuger@163.com>
 homepage: https://github.com/debugerer/flutter_gateway
 
