@@ -25,7 +25,7 @@ class Gateway {
 
   @override
   String toString() {
-    return 'ip:$ip\n localIP:$localIP\n netmask:$netmask\n broadcast:$broadcast';
+    return 'IP: $ip\n' + 'LocalIP: $localIP\n' + 'Netmask: $netmask\n' + 'Broadcast: $broadcast';
   }
 
   static Future<String> get platformVersion async {
