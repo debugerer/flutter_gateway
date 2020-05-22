@@ -5,6 +5,10 @@ import android.net.DhcpInfo;
 import android.net.wifi.WifiManager;
 import android.util.Log;
 
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.InterfaceAddress;
+import java.net.NetworkInterface;
 import java.util.HashMap;
 
 import io.flutter.plugin.common.MethodCall;
@@ -13,7 +17,6 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
 
-import static android.content.ContentValues.TAG;
 import static android.content.Context.WIFI_SERVICE;
 
 /** GatewayPlugin */
@@ -57,8 +60,25 @@ public class GatewayPlugin implements MethodCallHandler {
       DhcpInfo dhcpInfo = wifiManager.getDhcpInfo();
       result.put("localIP", intToIp(dhcpInfo.ipAddress));
       result.put("ip", intToIp(dhcpInfo.serverAddress));
-      result.put("netmask", intToIp(dhcpInfo.netmask));
-      result.put("broadcast", intToIp((dhcpInfo.ipAddress & dhcpInfo.netmask) | ~dhcpInfo.netmask));
+
+      if (dhcpInfo.netmask == 0) {
+        try {
+          NetworkInterface networkInterface = NetworkInterface.getByInetAddress(InetAddress.getByName(intToIp(dhcpInfo.ipAddress)));
+          for (InterfaceAddress address : networkInterface.getInterfaceAddresses()) {
+              if (address.getBroadcast() != null) {
+                result.put("netmask", prefixToSubnet(address.getNetworkPrefixLength()));
+                result.put("broadcast", address.getBroadcast().toString().substring(1));
+                break;
+              }
+            }
+          } catch (IOException e) {
+            Log.e(TAG, e.getMessage());
+          }
+      } else {
+        result.put("netmask", intToIp(dhcpInfo.netmask));
+        result.put("broadcast", intToIp((dhcpInfo.ipAddress & dhcpInfo.netmask) | ~dhcpInfo.netmask));
+      }
+
       return result;
     } catch (Exception e) {
       Log.e(TAG, e.getMessage());
@@ -71,5 +91,9 @@ public class GatewayPlugin implements MethodCallHandler {
             ((i >> 8) & 0xFF) + "." +
             ((i >> 16) & 0xFF) + "." +
             ((i >> 24) & 0xFF);
+  }
+
+  String prefixToSubnet(int i) {
+    return intToIp((int) (Math.pow(2, i) - 1));
   }
 }
