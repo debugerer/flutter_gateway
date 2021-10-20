@@ -18,10 +18,10 @@ class Gateway {
   });
 
   Gateway.fromMap(Map<String, String> map)
-      : ip = map["ip"],
-        localIP = map["localIP"],
-        netmask = map["netmask"],
-        broadcast = map["broadcast"];
+      : ip = map["ip"] ?? "null",
+        localIP = map["localIP"] ?? "null",
+        netmask = map["netmask"] ?? "null",
+        broadcast = map["broadcast"] ?? "null";
 
   @override
   String toString() {
