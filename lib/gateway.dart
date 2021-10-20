@@ -5,10 +5,10 @@ import 'package:flutter/services.dart';
 class Gateway {
   static const MethodChannel _channel = const MethodChannel('gateway');
 
-  final String localIP;
-  final String ip;
-  final String netmask;
-  final String broadcast;
+  final String? localIP;
+  final String? ip;
+  final String? netmask;
+  final String? broadcast;
 
   Gateway({
     this.localIP = "0.0.0.0",
@@ -18,10 +18,10 @@ class Gateway {
   });
 
   Gateway.fromMap(Map<String, String> map)
-      : ip = map["ip"] ?? "null",
-        localIP = map["localIP"] ?? "null",
-        netmask = map["netmask"] ?? "null",
-        broadcast = map["broadcast"] ?? "null";
+      : ip = map["ip"],
+        localIP = map["localIP"],
+        netmask = map["netmask"],
+        broadcast = map["broadcast"];
 
   @override
   String toString() {
