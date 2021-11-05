@@ -5,10 +5,10 @@ import 'package:flutter/services.dart';
 class Gateway {
   static const MethodChannel _channel = const MethodChannel('gateway');
 
-  final String localIP;
-  final String ip;
-  final String netmask;
-  final String broadcast;
+  final String? localIP;
+  final String? ip;
+  final String? netmask;
+  final String? broadcast;
 
   Gateway({
     this.localIP = "0.0.0.0",
