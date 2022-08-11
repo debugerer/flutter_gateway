@@ -81,7 +81,7 @@ public class GatewayPlugin implements MethodCallHandler, FlutterPlugin {
                             break;
                         }
                     }
-                } catch (IOException e) {
+                } catch (IOException | NullPointerException e) {
                     Log.e(TAG, e.getMessage());
                 }
             } else {
