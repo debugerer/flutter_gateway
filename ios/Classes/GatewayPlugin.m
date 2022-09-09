@@ -43,27 +43,27 @@
                 if([[NSString stringWithUTF8String:temp_addr->ifa_name] isEqualToString:@"en0"])
                 {
                     address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)];
-                    NSLog(@"本机地址：%@",address);
+                    //NSLog(@"本机地址：%@",address);
                     [dic setObject:address forKey:@"localIP"];
                     
                     //routerIP----192.168.1.255 广播地址
                     address2=[NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_dstaddr)->sin_addr)];
-                    NSLog(@"广播地址：%@",address2);
+                    //NSLog(@"广播地址：%@",address2);
                     [dic setObject:address2 forKey:@"broadcast"];
                     
                     //--192.168.1.106 本机地址
-                    NSLog(@"本机地址：%@",[NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)]);
+                    //NSLog(@"本机地址：%@",[NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)]);
                     
                     //--255.255.255.0 子网掩码地址
                     address2=[NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_netmask)->sin_addr)];
-                    NSLog(@"子网掩码地址：%@",address2);
+                    //NSLog(@"子网掩码地址：%@",address2);
                     [dic setObject:address2 forKey:@"netmask"];
                     
                     //--en0 接口
                     //  en0       Ethernet II    protocal interface
                     //  et0       802.3             protocal interface
                     //  ent0      Hardware device interface
-                    NSLog(@"接口名：%@",[NSString stringWithUTF8String:temp_addr->ifa_name]);
+                    //NSLog(@"接口名：%@",[NSString stringWithUTF8String:temp_addr->ifa_name]);
                 }
             }
             temp_addr = temp_addr->ifa_next;
